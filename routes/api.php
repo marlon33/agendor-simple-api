@@ -40,8 +40,8 @@ Route::get('/me/{token}', function (Request $request,$token) {
     $deals = sendApi($token, "deals");
 
     return response()->json(
-        // $me,
-        $funnels,
+        $me,
+        // $funnels,
         // $organizations,
         // $peopleDeals,
         // $deals
