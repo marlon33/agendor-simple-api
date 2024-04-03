@@ -66,7 +66,7 @@ Route::get('/organizations/{token}', function (Request $request, $token) {
     return response()->json(sendApi($token, "organizations"));
 });
 
-Route::get('/funnels/{token}', function (Request $request, $dealId, $token) {
+Route::get('/funnels/{token}', function (Request $request) {
     return response()->json(sendApi($token, "funnels"));
 });
 
