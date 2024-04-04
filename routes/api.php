@@ -32,20 +32,8 @@ function sendApi($token, $route, $method = "get", $post = null)
 }
 
 Route::get('/me/{token}', function (Request $request,$token) {
-    // return response()->json(sendApi($token, "organizations/36721930/deals", "post"));
     $me = sendApi($token, "users/me");
-    $funnels = sendApi($token, "funnels");
-    $organizations = sendApi($token, "organizations");
-    $peopleDeals = sendApi($token, "people/820262/deals");
-    $deals = sendApi($token, "deals");
-
-    return response()->json(
-        $me,
-        // $funnels,
-        // $organizations,
-        // $peopleDeals,
-        // $deals
-    );
+    return response()->json($me);
 });
 
 Route::post('/organizations/{organizationId}/{token}', function (Request $request, $organizationId, $token) {
@@ -58,7 +46,6 @@ Route::post('/organizations/{organizationId}/{token}', function (Request $reques
         "value"=>$request->value,
         "allowToAllUsers"=>$request->allowToAllUsers
         ];
-    // return response()->json($post);
     return response()->json(sendApi($token, "organizations/$organizationId/deals", "post", $post));
 });
 
