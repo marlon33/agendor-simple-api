@@ -50,7 +50,7 @@ Route::post('/organizations/{organizationId}/{token}', function (Request $reques
 });
 
 Route::get('/organizations/{token}', function (Request $request, $token) {
-    return response()->json(sendApi($token, "organizations?per_page=100&name=ALLBOX"));
+    return response()->json(sendApi($token, "organizations"));
 });
 
 Route::get('/funnels/{token}', function (Request $request, $token) {
